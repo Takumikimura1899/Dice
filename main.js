@@ -8,12 +8,12 @@ const result = document.getElementById('result');
 const setPlayer1dice = document.getElementById('setPlayer1dice');
 const setPlayer2dice = document.getElementById('setPlayer2dice');
 
-//再宣言不可能な変数player1Num,player2Numに値１を入れて宣言する。いらない。
+//変数player1Num,player2Numに値１を入れて宣言する。いらない。
 // let player1Num = 1
 // let player2Num = 1
 
-// 値が入ってないけど定義されている＝null　値もなく定義もされていない状態＝attribute
-// 再宣言不可能な変数player1Timer,player2Timer,player1Stop,player2Stopを定義する。値＝nullとなる。
+// 値が入ってないけど定義されている＝null　値もなく定義もされていない状態＝undefined
+// 変数player1Timer,player2Timer,player1Stop,player2Stopを定義する。値＝nullとなる。
 let player1Timer,player2Timer
 let player1Stop
 let player2Stop
@@ -31,6 +31,9 @@ const func1 = () => {
     // player1Stop = true;()　<=これは必要なさそう
 
     // player1Timerのアロー関数をsetInterval(関数,処理間隔)で囲んである
+    // player1TimerはsetIntervalが動いているという状態を保持しておくための変数になります。
+    // ちなみにplayer1Timerには数値がはいっており、
+    // その動いているsetIntervalのidが数値で入っています。
     player1Timer = setInterval(() => {
         player1Num = Math.floor(Math.random() * 6 + 1);
         setPlayer1dice.setAttribute("src", `./img/saikoro${player1Num}.png`)
